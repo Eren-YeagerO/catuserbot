@@ -54,9 +54,9 @@ def user_full_name(user):
 
 @catub.cat_cmd(pattern="inviteall(?:\s|$)([\s\S]*)")
 async def get_users(event):
-    hel_ = event.text[11:]
-    hell_chat = hel_.lower()
-    hell = await eor(event, f"__Inviting members from__ {hel_}")
+    catu_ = event.text[11:]
+    catub_chat = hel_.lower()
+    catub = await edit_or_reply(event, f"__Inviting members from__ {hel_}")
     kraken = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
@@ -64,18 +64,18 @@ async def get_users(event):
     s = 0
     f = 0
     error = "None"
-    await hell.edit("**INVITING USERS !!**")
+    await catub.edit("**INVITING USERS !!**")
     async for user in event.client.iter_participants(kraken.full_chat.id):
         try:
             await event.client(InviteToChannelRequest(channel=chat, users=[user.id]))
             s += 1
-            await hell.edit(
+            await catub.edit(
                 f"**INVITING USERS.. **\n\n**Invited :**  `{s}` users \n**Failed to Invite :**  `{f}` users.\n\n**×Error :**  `{error}`"
             )
         except Exception as e:
             error = str(e)
             f += 1
-    return await hell.edit(
+    return await catub.edit(
         f"**INVITING FINISHED** \n\n**Invited :**  `{s}` users \n**Failed :**  `{f}` users."
     )
 
