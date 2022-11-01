@@ -400,7 +400,7 @@ async def add_ensns(event):
     try:
         raddai(chat_id, user_id, chat_name, user_name, user_username, chat_type)
     except Exception as e:
-        await eod(legendevent, f"**Error:**\n`{e}`")
+        await edit_delete(legendevent, f"**Error:**\n`{e}`")
     else:
         await eor(legendevent, "Raid Has Been Started")
 
@@ -424,7 +424,7 @@ async def remove_chatbot(event):
         try:
             rremove_ai(chat_id, user_id)
         except Exception as e:
-            await eod(event, f"**Error:**\n`{e}`")
+            await edit_delete(event, f"**Error:**\n`{e}`")
         else:
             await eor(event, "Raid has been stopped for the user")
     else:
@@ -450,7 +450,7 @@ async def delete_chbot(event):
     if input_str:
         lecho = rget_all_users()
         if len(lecho) == 0:
-            return await eod(
+            return await edit_delete(
                 event, "You havent enabled ai atleast for one user in any chat."
             )
         try:
@@ -462,13 +462,13 @@ async def delete_chbot(event):
     else:
         lecho = rget_users(event.chat_id)
         if len(lecho) == 0:
-            return await eod(
+            return await edit_delete(
                 event, "You havent enabled raid atleast for one user in this chat."
             )
         try:
             rremove_users(event.chat_id)
         except Exception as e:
-            await eod(event, f"**Error:**\n`{e}`", 10)
+            await edit_delete(event, f"**Error:**\n`{e}`", 10)
         else:
             await eor(event, "Deleted Raid for all enabled users in this chat")
 
