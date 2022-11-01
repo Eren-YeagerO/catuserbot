@@ -86,7 +86,7 @@ async def _(event):
         return
     to_add_users = event.pattern_match.group(1)
     if event.is_private:
-        await eod(event, f"Use `{hl}add` users to a chat, not to a Private Message")
+        await edit_delete(event, f"Use `{hl}add` users to a chat, not to a Private Message")
     else:
         logger.info(to_add_users)
         if not event.is_channel and event.is_group:
@@ -109,4 +109,4 @@ async def _(event):
                     )
                 except Exception as e:
                     return await parse_error(event, e)
-    await eod(event, "Added user to the chat..")
+    await edit_delete(event, "Added user to the chat..")
