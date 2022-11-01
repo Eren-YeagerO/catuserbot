@@ -379,7 +379,7 @@ async def add_ensns(event):
     type = await useless.importent(event)
     if type:
         return
-    legendevent = await edit_or_reply(event, "`Adding Raid to user...`")
+    catevent = await edit_or_reply(event, "`Adding Raid to user...`")
     reply_msg = await event.get_reply_message()
     b = await event.client.get_entity(reply_msg.sender_id)
     g = b.id
@@ -400,9 +400,9 @@ async def add_ensns(event):
     try:
         raddai(chat_id, user_id, chat_name, user_name, user_username, chat_type)
     except Exception as e:
-        await edit_delete(legendevent, f"**Error:**\n`{e}`")
+        await edit_delete(catevent, f"**Error:**\n`{e}`")
     else:
-        await edit_or_reply(legendevent, "Raid Has Been Started")
+        await edit_or_reply(catevent, "Raid Has Been Started")
 
 
 @catub.cat_cmd(
