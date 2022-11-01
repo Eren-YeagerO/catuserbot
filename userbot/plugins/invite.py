@@ -55,12 +55,12 @@ def user_full_name(user):
 @catub.cat_cmd(pattern="inviteall(?:\s|$)([\s\S]*)")
 async def get_users(event):
     catu_ = event.text[11:]
-    catub_chat = hel_.lower()
-    catub = await edit_or_reply(event, f"__Inviting members from__ {hel_}")
+    catub_chat = catu_.lower()
+    catub = await edit_or_reply(event, f"__Inviting members from__ {catu_}")
     kraken = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await eod(hell, "Nice try you fool!")
+        return await edit_delete(hell, "Nice try you fool!")
     s = 0
     f = 0
     error = "None"
