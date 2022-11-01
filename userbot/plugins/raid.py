@@ -326,7 +326,7 @@ RAID = [
 
 @catub.cat_cmd(
     pattern="raid(?:\s|$)([\s\S]*)",
-    command=("raid", menu_category),
+    command=("raid", plugin_category),
     info={
         "header": "To Send Abuse rapidly with according to number",
         "usage": "{tr}raid <number> <reply>",
@@ -363,7 +363,7 @@ async def spam(e):
 
 @catub.cat_cmd(
     pattern="replyraid$",
-    command=("replyraid", menu_category),
+    command=("replyraid", plugin_category),
     info={
         "header": "To add this person in raid.",
         "usage": "{tr}replyraid <reply>",
@@ -407,7 +407,7 @@ async def add_ensns(event):
 
 @catub.cat_cmd(
     pattern="dreplyraid$",
-    command=("dreplyraid", menu_category),
+    command=("dreplyraid", plugin_category),
     info={
         "header": "To stop raid on it.",
         "usage": "{tr}dreplyraid <reply>",
@@ -433,7 +433,7 @@ async def remove_chatbot(event):
 
 @catub.cat_cmd(
     pattern="delraid( -a)?",
-    command=("delraid", menu_category),
+    command=("delraid", plugin_category),
     info={
         "header": "To delete raid in this chat.",
         "description": "To stop raid for all enabled users in this chat only..",
@@ -475,7 +475,7 @@ async def delete_chbot(event):
 
 @catub.cat_cmd(
     pattern="listraid( -a)?$",
-    command=("listraid", menu_category),
+    command=("listraid", plugin_category),
     info={
         "header": "shows the list of users for whom you enabled raid",
         "flags": {
