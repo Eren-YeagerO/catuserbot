@@ -416,7 +416,7 @@ async def add_ensns(event):
 async def remove_chatbot(event):
     "To stop raid for that user"
     if event.reply_to_msg_id is None:
-        return await eor(event, "Reply to a User's message to stop raid on him.")
+        return await edit_or_reply(event, "Reply to a User's message to stop raid on him.")
     reply_msg = await event.get_reply_message()
     user_id = reply_msg.sender_id
     chat_id = event.chat_id
@@ -496,7 +496,7 @@ async def list_raidbot(event):  # sourcery no-metrics
         lsts = rget_all_users()
         group_chats = ""
         if len(lsts) <= 0:
-            return await eor(event, "There are no raid enabled users")
+            return await edit_or_reply(event, "There are no raid enabled users")
         for raid in lsts:
             if raid.chat_type == "Personal":
                 if raid.user_username:
@@ -530,7 +530,7 @@ async def list_raidbot(event):  # sourcery no-metrics
                     f"☞ [{echos.user_name}](tg://user?id={echos.user_id})\n"
                 )
         output_str = "**raid enabled users in this chat are:**\n" + private_chats
-    await eor(event, output_str)
+    await edit_or_reply(event, output_str)
 
 
 @catub.cat_cmd(incoming=True, edited=False)
