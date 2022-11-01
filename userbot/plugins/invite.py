@@ -60,7 +60,7 @@ async def get_users(event):
     kraken = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await edit_delete(hell, "Nice try you fool!")
+        return await edit_delete(catub, "Nice try you fool!")
     s = 0
     f = 0
     error = "None"
