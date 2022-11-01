@@ -372,14 +372,14 @@ async def spam(e):
 async def add_ensns(event):
     "To raid for the replied person"
     if event.reply_to_msg_id is None:
-        return await eor(event, "`Reply to a User's message to activate raid on `")
+        return await edit_or_reply(event, "`Reply to a User's message to activate raid on `")
     reply_to = await reply_id(event)
     if await age_verification(event, reply_to):
         return
     type = await useless.importent(event)
     if type:
         return
-    legendevent = await eor(event, "`Adding Raid to user...`")
+    legendevent = await edit_or_reply(event, "`Adding Raid to user...`")
     reply_msg = await event.get_reply_message()
     b = await event.client.get_entity(reply_msg.sender_id)
     g = b.id
@@ -426,9 +426,9 @@ async def remove_chatbot(event):
         except Exception as e:
             await edit_delete(event, f"**Error:**\n`{e}`")
         else:
-            await eor(event, "Raid has been stopped for the user")
+            await edit_or_reply(event, "Raid has been stopped for the user")
     else:
-        await eor(event, "The user is not activated with raid")
+        await edit_or_reply(event, "The user is not activated with raid")
 
 
 @catub.cat_cmd(
@@ -458,7 +458,7 @@ async def delete_chbot(event):
         except Exception as e:
             await edit_delete(event, f"**Error:**\n`{str(e)}`", 10)
         else:
-            await eor(event, "Deleted ai for all enabled users in all chats.")
+            await edit_or_reply(event, "Deleted ai for all enabled users in all chats.")
     else:
         lecho = rget_users(event.chat_id)
         if len(lecho) == 0:
@@ -470,7 +470,7 @@ async def delete_chbot(event):
         except Exception as e:
             await edit_delete(event, f"**Error:**\n`{e}`", 10)
         else:
-            await eor(event, "Deleted Raid for all enabled users in this chat")
+            await edit_or_reply(event, "Deleted Raid for all enabled users in this chat")
 
 
 @catub.cat_cmd(
