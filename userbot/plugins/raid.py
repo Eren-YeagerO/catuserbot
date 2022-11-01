@@ -396,13 +396,13 @@ async def add_ensns(event):
     user_name = c
     user_username = username
     if ris_added(chat_id, user_id):
-        return await eor(event, "`The user is already enabled with Raid`")
+        return await edit_or_reply(event, "`The user is already enabled with Raid`")
     try:
         raddai(chat_id, user_id, chat_name, user_name, user_username, chat_type)
     except Exception as e:
         await edit_delete(legendevent, f"**Error:**\n`{e}`")
     else:
-        await eor(legendevent, "Raid Has Been Started")
+        await edit_or_reply(legendevent, "Raid Has Been Started")
 
 
 @catub.cat_cmd(
@@ -519,7 +519,7 @@ async def list_raidbot(event):  # sourcery no-metrics
     else:
         lsts = rget_users(event.chat_id)
         if len(lsts) <= 0:
-            return await eor(event, "There are no raid enabled users in this chat")
+            return await edit_or_reply(event, "There are no raid enabled users in this chat")
         for echos in lsts:
             if echos.user_username:
                 private_chats += (
