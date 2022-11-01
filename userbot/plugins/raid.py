@@ -456,7 +456,7 @@ async def delete_chbot(event):
         try:
             rremove_all_users()
         except Exception as e:
-            await eod(event, f"**Error:**\n`{str(e)}`", 10)
+            await edit_delete(event, f"**Error:**\n`{str(e)}`", 10)
         else:
             await eor(event, "Deleted ai for all enabled users in all chats.")
     else:
